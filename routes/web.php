@@ -11,6 +11,26 @@
 |
 */
 
+/*
+|--------------------------------------------------------------
+| Login
+|   - GET -> viewLogin (laravel auth)
+|   - POST -> login (laravel auth)
+|   - GET -> viewEsqueciSenha (laravel auth)
+|   - POST -> enviarLembreteSenha (laravel auth)
+|--------------------------------------------------------------
+|--------------------------------------------------------------
+| Administrador (Coordenadoria da Comunicação)
+|   - GET -> viewAdicionarUsuario ('/home/autenticacao/adicionar', AdminController@viewAdicionarUsuario)
+|   - POST -> adicionarUsuario ('/home/autenticacao/salvar', AdminController@salvarNovoUsuario)
+|   - GET -> viewDesativarUsuario ('/home/autenticacao/desativar', AdminController@viewDesativarUsuario)
+|   - POST -> desativarUsuario ('/home/autenticacao/salvarDesativacao', AdminController@desativarUsuario)
+|   
+|--------------------------------------------------------------
+|
+*/
+
+
 //Route::get('/dashboard', 'AdminController@viewDashboard');
 
 Route::get('/', function(){ return "Teste";});
@@ -18,3 +38,4 @@ Route::get('/', function(){ return "Teste";});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
