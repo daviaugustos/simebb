@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'AdminController@viewDashboard');
+//Route::get('/dashboard', 'AdminController@viewDashboard');
 
-
+Route::get('/', function(){ return "Teste";});
 
 Auth::routes();
 

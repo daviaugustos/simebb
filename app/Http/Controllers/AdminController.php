@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function viewDashboard(){
-        return view('index');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+    
+    public function viewDashboard(){
+        return view('home');
+    }
+
+
 }
