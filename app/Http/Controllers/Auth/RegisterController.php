@@ -36,7 +36,10 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //  Implementa o middleware de verificação de estado do usuário,
+        //  se ele está logado, não permitir que acesse o login novamente por exemplo.
+        
+        //$this->middleware('guest');
     }
 
     /**
