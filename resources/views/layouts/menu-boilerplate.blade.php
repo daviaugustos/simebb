@@ -467,9 +467,14 @@
             </aside>
             <!-- #END# Right Sidebar -->
         </section>
-
-        @yield('conteudo')
-        
+        <section class="content">
+            <div class="container-fluid">
+                <div class="block-header">
+                    <h2>@yield('tituloPagina')</h2>
+                </div>
+                @yield('conteudo')
+            </div>
+        </section>
     </div>
 
 @stop
