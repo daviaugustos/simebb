@@ -30,12 +30,28 @@
 |
 */
 
+//Utilizar para ver as rotas utilizadas pelo auth do laravel
+//Auth::routes();
 
-//Route::get('/dashboard', 'AdminController@viewDashboard');
+Route::get('/', 'Auth\LoginController@showLoginForm');
 
-Route::get('/', function(){ return "Teste";});
+Route::get('/identificacao', 'Auth\LoginController@showLoginForm')
+    ->name('viewLogin');
 
-Auth::routes();
+Route::post('/identificacao/login', 'Auth\LoginController@login')
+    ->name('login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('viewHome');
 
+Route::post('/home/logout', 'Auth\LoginController@logout')
+    ->name('logout');
+
+Route::get('/home/autenticacao/adicionar', 'Auth\RegisterController@showRegistrationForm')
+    ->name('viewAdicionarUsuario');
+
+Route::post('/home/autenticacao/salvar', 'Auth\RegisterController@register')
+    ->name('salvarUsuario');
+
+Route::get('/home/autenticacao/gerenciar-usuarios', 'Admin\AdminController@viewGerenciarUsuarios')
+    ->name('viewGerenciarUsuarios');

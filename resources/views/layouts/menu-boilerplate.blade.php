@@ -250,7 +250,7 @@
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="image">
-                        <img src="images/user.png" width="100%" height="100%" alt="User" />
+                        <img src="{{ asset('images/user.png')}}" width="100%" height="100%" alt="User" />
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
@@ -266,13 +266,13 @@
                                 <li role="seperator" class="divider"></li>  --}}
                                 {{--  <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sair</a></li>  --}}
                                 <li>
-                                    <a href="{{ route('logout') }}"
+                                    <a href="/home/logout"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         <i class="material-icons">input</i>Sair</a>
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="/home/logout" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
@@ -299,7 +299,7 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="{{ route('register') }}">Adicionar novo usuário</a>
+                                    <a href="{{ route('viewGerenciarUsuarios') }}">Adicionar novo usuário</a>
                                 </li>
                                 <li>
                                     <a href="pages/forms/advanced-form-elements.html">Desativar acesso</a>

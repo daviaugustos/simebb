@@ -14,7 +14,7 @@
                 </h2>
             </div>
             <div class="body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('salvarUsuario') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group form-float">
