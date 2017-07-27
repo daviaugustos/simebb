@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
+use App\User;
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -14,7 +16,12 @@ class AdminController extends Controller
     }
     
     public function viewGerenciarUsuarios(){
-        return view('Admin.gerenciar-usuarios');
+        $usuariosCadastrados = User::all();
+
+        $viewBag = [
+            "usuariosCadastrados" => $usuariosCadastrados,
+        ];
+        return view('Admin.gerenciar-usuarios', $viewBag);
     }
 
 
