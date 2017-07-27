@@ -12,6 +12,13 @@
                     Informações gerais
                     <small>Por padrão, usuários ativos são exibidos primariamente</small>
                 </h2>
+                <br />
+                <a href="{{route('viewAdicionarUsuario')}}">
+                    <button type="button" class="btn btn-primary waves-effect" >
+                        <i class="material-icons">person_add</i>
+                        <span>Cadastrar usuário</span>
+                    </button>
+                </a>
             </div>
             <div class="body">
             <div class="body table-responsive">
@@ -26,10 +33,10 @@
                     <tbody>
                         @foreach($usuariosCadastrados as $usuario)
                             <tr>
-                                <th scope="row">Setor</th>
+                                <th scope="row">{{$usuario["setor"]}}</th>
                                 <td>{{$usuario["name"]}}</td>
                                 <td>{{$usuario["email"]}}</td>
-                                <td><a><i class="material-icons">mode_edit</i> Alterar</a></td>
+                                <td><a href=""><i class="material-icons">mode_edit</i> Alterar</a></td>
                             </tr>
                         @endforeach
                     </tbody>
