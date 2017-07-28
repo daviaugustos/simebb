@@ -20,7 +20,7 @@
                     <div class="form-group form-float">
                         <div class="form-line">
                             <label for="name" class="form-label">Nome do usuário</label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
                         </div>
                     </div>
 
@@ -42,6 +42,15 @@
                         <div class="form-line">
                             <label for="password-confirm" class="form-label">Confirmar senha</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <select name="setor">
+                                <option value="COORDEDUCACAO">Coordenadoria da educação</option>
+                                <option value="ESCOLA">Escola Estadual</option>
+                            </select>
                         </div>
                     </div>
 
