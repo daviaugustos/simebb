@@ -8,6 +8,16 @@
                 <a href="javascript:void(0);"><b>SIMEBB</b></a>
                 <small>Descrição do sistema</small>
             </div>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card">
                 <div class="body">
                     <form id="sign_in" method="POST" action="{{ route('login') }}">
@@ -18,7 +28,7 @@
                                 <i class="material-icons">person</i>
                             </span>
                             <div class="form-line">
-                                <input type="text" class="form-control" name="email" placeholder="Email" required autofocus>
+                                <input type="email" class="form-control" name="email" placeholder="Email" required autofocus>
                             </div>
                         </div>
                         <div class="input-group">
