@@ -36,7 +36,7 @@
                                 <th scope="row">{{$usuario["setor"]}}</th>
                                 <td>{{$usuario["name"]}}</td>
                                 <td>{{$usuario["email"]}}</td>
-                                <td><a href=""><i class="material-icons">mode_edit</i> Alterar</a></td>
+                                {{--  <td><a href=""><i class="material-icons">mode_edit</i> Alterar</a></td>  --}}
                             </tr>
                         @endforeach
                     </tbody>
