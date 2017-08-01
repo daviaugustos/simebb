@@ -14,13 +14,22 @@
                 </h2>
             </div>
             <div class="body">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form method="POST" action="{{ route('salvarUsuario') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <label for="name" class="form-label">Nome do usuário</label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
+                            <label for="nome" class="form-label">Nome do usuário</label>
+                            <input id="name" type="text" class="form-control" name="nome" value="{{ old('nome') }}" required>
                         </div>
                     </div>
 
@@ -33,15 +42,15 @@
 
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <label for="password" class="form-label">Senha</label>
-                            <input id="password" type="password" class="form-control" name="password" required>
+                            <label for="senha" class="form-label">Senha</label>
+                            <input id="password" type="password" class="form-control" name="senha" required>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
                         <div class="form-line">
                             <label for="password-confirm" class="form-label">Confirmar senha</label>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" class="form-control" name="senha_confirmation" required>
                         </div>
                     </div>
 
