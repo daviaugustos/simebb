@@ -6,7 +6,7 @@
 
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
+        <div class="card">
             <div class="header">
                 <h2>
                     Informações gerais
@@ -21,28 +21,27 @@
                 </a>
             </div>
             <div class="body">
-            <div class="body table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Setor</th>
-                            <th>Nome</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($usuariosCadastrados as $usuario)
+                <div class="body table-responsive">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <th scope="row">{{$usuario["setor"]}}</th>
-                                <td>{{$usuario["name"]}}</td>
-                                <td>{{$usuario["email"]}}</td>
-                                {{--  <td><a href=""><i class="material-icons">mode_edit</i> Alterar</a></td>  --}}
+                                <th>Setor</th>
+                                <th>Nome</th>
+                                <th>Email</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-
+                        </thead>
+                        <tbody>
+                            @foreach($usuariosCadastrados as $usuario)
+                                <tr>
+                                    <th scope="row">{{$usuario["setor"]}}</th>
+                                    <td>{{$usuario["name"]}}</td>
+                                    <td>{{$usuario["email"]}}</td>
+                                    {{--  <td><a href=""><i class="material-icons">mode_edit</i> Alterar</a></td>  --}}
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
