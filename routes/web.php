@@ -40,17 +40,20 @@ Route::get ('/identificacao',                           'Auth\LoginController@sh
 Route::post('/identificacao/login',                     'Auth\LoginController@login')
     ->name('login');
 
-Route::get ('/home',                                    'HomeController@index')
-    ->name('viewHome');
+Route::middleware('can:acessar-comunicacao')->group(function(){
+    Route::get ('/home',                                    'HomeController@index')
+        ->name('viewHome');
 
-Route::post('/home/logout',                             'Auth\LoginController@logout')
-    ->name('logout');
+    Route::post('/home/logout',                             'Auth\LoginController@logout')
+        ->name('logout');
 
-Route::get ('/home/autenticacao/adicionar',             'Auth\RegisterController@showRegistrationForm')
-    ->name('viewAdicionarUsuario');
+    Route::get ('/home/autenticacao/adicionar',             'Auth\RegisterController@showRegistrationForm')
+        ->name('viewAdicionarUsuario');
 
-Route::post('/home/autenticacao/salvar',                'Auth\RegisterController@register')
-    ->name('salvarUsuario');
+    Route::post('/home/autenticacao/salvar',                'Auth\RegisterController@register')
+        ->name('salvarUsuario');
 
-Route::get ('/home/autenticacao/gerenciar-usuarios',    'Admin\AdminController@viewGerenciarUsuarios')
-    ->name('viewGerenciarUsuarios');
+    Route::get ('/home/autenticacao/gerenciar-usuarios',    'Admin\AdminController@viewGerenciarUsuarios')
+        ->name('viewGerenciarUsuarios');
+
+});

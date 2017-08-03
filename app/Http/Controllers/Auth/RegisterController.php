@@ -27,7 +27,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home/autenticacao/gerenciar-usuarios';
+    protected function redirectTo(){
+        return route('viewGerenciarUsuarios');
+    }
 
     /**
      * Create a new controller instance.
