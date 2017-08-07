@@ -43,7 +43,7 @@
                 <div class="navbar-header">
                     <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                     <a href="javascript:void(0);" class="bars"></a>
-                    <a class="navbar-brand" href="{{route('viewHome')}}">SIMEBB</a>
+                    <a class="navbar-brand" href="{{route('viewHomeComunicacao')}}">SIMEBB</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -287,25 +287,27 @@
                     <ul class="list">
                         <li class="header">MENU PRINCIPAL</li>
                         <li class="active">
-                            <a href="{{route('viewHome')}}">
+                            <a href="{{route('viewHomeComunicacao')}}">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <i class="material-icons">assignment</i>
-                                <span>Acesso ao sistema</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="{{ route('viewGerenciarUsuarios') }}">Adicionar novo usuário</a>
-                                </li>
-                                <li>
-                                    <a href="pages/forms/advanced-form-elements.html">Desativar acesso</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @can('acessar-comunicacao')
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">assignment</i>
+                                    <span>Acesso ao sistema</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="{{ route('viewGerenciarUsuarios') }}">Adicionar novo usuário</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages/forms/advanced-form-elements.html">Desativar acesso</a>
+                                    </li>
+                                </ul>
+                            </li> 
+                        @endcan
                     </ul>
                 </div>
                 <!-- #Menu -->

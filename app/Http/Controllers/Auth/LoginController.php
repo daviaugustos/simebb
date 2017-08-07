@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+// use App\Providers\AuthServiceProvider;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -20,12 +22,16 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    protected function authenticated($usuarioRecemLogado)
+    {
+        $usuario = DB::table('users')
+            ->where('email', '=', $usuarioRecemLogado->email)
+            ->get();
+        
+        if($usuario[0]->setor == 'COMUNICACAO') {
+            return redirect('/comunicacao/home');
+        }
+    }
 
     /**
      * Create a new controller instance.

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Comunicacao;
 
 use Illuminate\Http\Request;
 
@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 
-class AdminController extends Controller
+class ComunicacaoController extends Controller
 {
     public function __construct()
     {
@@ -21,8 +21,11 @@ class AdminController extends Controller
         $viewBag = [
             "usuariosCadastrados" => $usuariosCadastrados,
         ];
-        return view('Admin.gerenciar-usuarios', $viewBag);
+        return view('Comunicacao.gerenciar-usuarios', $viewBag);
     }
 
+    public function index(){
+        return view('Comunicacao.home');
+    }
 
 }
