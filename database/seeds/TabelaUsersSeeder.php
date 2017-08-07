@@ -17,6 +17,7 @@ class TabelaUsersSeeder extends Seeder
             'password' => bcrypt('123456'),
             'setor' => 'COMUNICACAO',
             'status' => TRUE,
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
     }
 }
