@@ -29,5 +29,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('acessar-comunicacao', function(User $usuario){
             return $usuario->setor == 'COMUNICACAO';
         });
+
+        Gate::define('acessar-coordeducacao', function(User $usuario){
+            return $usuario->setor == 'COORDEDUCACAO';
+        });
     }
 }

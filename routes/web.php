@@ -55,3 +55,8 @@ Route::middleware('can:acessar-comunicacao')->group(function(){
         ->name('viewGerenciarUsuarios');
 
 });
+
+Route::middleware('can:acessar-coordeducacao')->group(function(){
+    Route::get ('/coordeducacao/home',                                    'CoordEducacao\CoordEducacaoController@index')
+        ->name('viewHomeCoordEducacao');
+});
