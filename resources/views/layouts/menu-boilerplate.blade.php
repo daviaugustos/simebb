@@ -254,7 +254,14 @@
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
-                        <div class="email">Coordenadoria da comunicação</div>
+                        
+                        @if(Auth::user()->setor == "COORDEDUCACAO")
+                            <div class="email">Coordenadoria da Educação</div>
+                        @endif
+                        @if(Auth::user()->setor == "COMUNICACAO")
+                            <div class="email">Coordenadoria da Comunicação</div>
+                        @endif
+                        
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
