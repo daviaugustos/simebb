@@ -43,7 +43,7 @@
                 <div class="navbar-header">
                     <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                     <a href="javascript:void(0);" class="bars"></a>
-                    <a class="navbar-brand" href="{{route('viewHomeComunicacao')}}">SIMEBB</a>
+                    <a class="navbar-brand">SIMEBB</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -285,14 +285,23 @@
                 <!-- Menu -->
                 <div class="menu">
                     <ul class="list">
-                        <li class="header">MENU PRINCIPAL</li>
-                        <li class="active">
-                            <a href="{{route('viewHomeComunicacao')}}">
-                                <i class="material-icons">home</i>
-                                <span>Home</span>
-                            </a>
-                        </li>
+                        <li class="header active">MENU PRINCIPAL</li>
+                        @can('acessar-coordeducacao')
+                            <li class="active">
+                                <a href="{{route('viewHomeCoordEducacao')}}">
+                                    <i class="material-icons">home</i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                        @endcan
+
                         @can('acessar-comunicacao')
+                            <li class="active">
+                                <a href="{{route('viewHomeComunicacao')}}">
+                                    <i class="material-icons">home</i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="javascript:void(0);" class="menu-toggle">
                                     <i class="material-icons">assignment</i>

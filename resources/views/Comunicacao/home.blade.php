@@ -3,6 +3,7 @@
 @section('conteudo')
     @parent
     @section('tituloPagina', 'DASHBOARD')
+    @section('tituloGuia', 'SIMEBB - Administrador')
     <!-- Widgets -->
     <div class="row clearfix">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
