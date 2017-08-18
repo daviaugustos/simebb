@@ -24,12 +24,12 @@ class LoginController extends Controller
 
     protected function authenticated($usuarioRecemLogado)
     {
-        $usuario = DB::table('users')
-            ->where('email', '=', $usuarioRecemLogado->email)
-            ->get();
-        
-        if($usuario[0]->setor == 'COMUNICACAO') {
+        $objetoUsuario = $this->buscaUsuarioLogado($usuarioRecemLogado);
+
+        if($objetoUsuario->setor == 'COMUNICACAO') {
             return redirect('/comunicacao/home');
+        } else if ($objetoUsuario->setor == 'COORDEDUCACAO'){
+            return redirect('/coordeducacao/home');
         }
     }
 
@@ -41,5 +41,18 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Busca no banco o registro completo do usuário logado.
+     *
+     * @return User object
+     */
+    private function buscaUsuarioLogado($usuario){
+        $usuarioBanco = DB::table('users')
+            ->where('email', '=', $usuario->email)
+            ->get();
+
+        return $usuarioBanco[0];
     }
 }
