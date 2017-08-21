@@ -57,6 +57,15 @@ Route::middleware('can:acessar-comunicacao')->group(function(){
 });
 
 Route::middleware('can:acessar-coordeducacao')->group(function(){
-    Route::get ('/coordeducacao/home',                                    'CoordEducacao\CoordEducacaoController@index')
+    Route::get ('/coordeducacao/home',                                  'CoordEducacao\CoordEducacaoController@index')
         ->name('viewHomeCoordEducacao');
+
+    Route::get('/coordeducacao/alunos',                                 'CoordEducacao\CoordEducacaoController@gerenciarAlunos')
+        ->name('viewGerenciarAlunos');
+    
+    Route::get('/coordeducacao/alunos/adicionar',                       'CoordEducacao\CoordEducacaoController@adicionarAluno')
+        ->name('viewAdicionarAluno');
+
+    Route::post('/coordeducacao/alunos/adicionar/salvar',               'CoordEducacao\CoordEducacaoController@salvarAluno')
+        ->name('salvarAluno');
 });

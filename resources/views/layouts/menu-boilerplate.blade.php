@@ -255,12 +255,12 @@
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
                         
-                        @if(Auth::user()->setor == "COORDEDUCACAO")
-                            <div class="email">Coordenadoria da Educação</div>
-                        @endif
-                        @if(Auth::user()->setor == "COMUNICACAO")
-                            <div class="email">Coordenadoria da Comunicação</div>
-                        @endif
+                            @if(Auth::user()->setor == "COORDEDUCACAO")
+                                <div class="email">Coordenadoria da Educação</div>
+                            @endif
+                            @if(Auth::user()->setor == "COMUNICACAO")
+                                <div class="email">Coordenadoria da Comunicação</div>
+                            @endif
                         
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -293,37 +293,43 @@
                 <div class="menu">
                     <ul class="list">
                         <li class="header active">MENU PRINCIPAL</li>
-                        @can('acessar-coordeducacao')
-                            <li class="active">
-                                <a href="{{route('viewHomeCoordEducacao')}}">
-                                    <i class="material-icons">home</i>
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                        @endcan
+                            @can('acessar-coordeducacao')
+                                <li class="active">
+                                    <a href="{{route('viewHomeCoordEducacao')}}">
+                                        <i class="material-icons">home</i>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('viewGerenciarAlunos')}}">
+                                        <i class="material-icons">people</i>
+                                        <span>Alunos</span>
+                                    </a>
+                                </li>
+                            @endcan
 
-                        @can('acessar-comunicacao')
-                            <li class="active">
-                                <a href="{{route('viewHomeComunicacao')}}">
-                                    <i class="material-icons">home</i>
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">assignment</i>
-                                    <span>Acesso ao sistema</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="{{ route('viewGerenciarUsuarios') }}">Adicionar novo usuário</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/forms/advanced-form-elements.html">Desativar acesso</a>
-                                    </li>
-                                </ul>
-                            </li> 
-                        @endcan
+                            @can('acessar-comunicacao')
+                                <li class="active">
+                                    <a href="{{route('viewHomeComunicacao')}}">
+                                        <i class="material-icons">home</i>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="menu-toggle">
+                                        <i class="material-icons">assignment</i>
+                                        <span>Acesso ao sistema</span>
+                                    </a>
+                                    <ul class="ml-menu">
+                                        <li>
+                                            <a href="{{ route('viewGerenciarUsuarios') }}">Adicionar novo usuário</a>
+                                        </li>
+                                        <li>
+                                            <a href="pages/forms/advanced-form-elements.html">Desativar acesso</a>
+                                        </li>
+                                    </ul>
+                                </li> 
+                            @endcan
                     </ul>
                 </div>
                 <!-- #Menu -->
